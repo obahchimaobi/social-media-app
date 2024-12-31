@@ -8,7 +8,7 @@
 
     @livewireStyles
 </head>
-<body class="bg-black">
+<body class="dark:bg-black bg-white/90 @if (Request::is('register', 'login')) bg-[url('/public/images/social.png')] bg-fixed @endif">
     
     @yield('content')
 

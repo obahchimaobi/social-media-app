@@ -5,7 +5,7 @@
     @endsection
 
     @section('content')
-    <div class="flex justify-center items-center h-screen bg-[url('/public/images/social.png')]">
+    <div class="flex justify-center items-center h-screen">
         <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700 w-[400px] mx-auto">
             <div class="p-4 sm:p-7">
                 <div class="text-center">

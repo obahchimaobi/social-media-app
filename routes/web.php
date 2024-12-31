@@ -1,7 +1,7 @@
 <?php
 
 use App\Livewire\Auth\LoginForm;
-use App\Livewire\Auth\RegisterForm;
+use App\Livewire\RegisterForm;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Auth\ForgotPasswordForm;
 
