@@ -52,8 +52,6 @@ class RegisterForm extends Component
         $this->reset();
 
         $this->message = "Registeration Successful";
-        
-        // $this->redirectRoute('login', navigate:true);
     }
 
     public function render()
