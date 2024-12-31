@@ -13,5 +13,6 @@
     @yield('content')
 
     @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/preline@1.2.0/dist/preline.min.js"></script>
 </body>
 </html>

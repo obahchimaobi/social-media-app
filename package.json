@@ -16,6 +16,7 @@
         "vite": "^6.0"
     },
     "dependencies": {
+        "@preline/remove-element": "^2.6.0",
         "flowbite": "^2.5.2",
         "preline": "^2.6.0"
     }

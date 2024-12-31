@@ -2,8 +2,11 @@
 
 namespace App\Livewire\Auth;
 
+use App\Mail\RegisterMail;
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterForm extends Component
 {
@@ -15,6 +18,8 @@ class RegisterForm extends Component
 
     public $checkbox;
 
+    public $message;
+
     public function submit()
     {
         $validatedData = $this->validate([
@@ -24,13 +29,31 @@ class RegisterForm extends Component
             'checkbox' => 'accepted',
         ]);
 
-        // dd($validatedData);
+        $user = new User([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => $validatedData['password'],
+        ]);
 
-        User::create($validatedData);
+        $user->save();
 
-        session()->flash('success', 'Registeration successfull.');
+        $email = $user->email;
+        $hash = $email;
+
+        $verificationUrl = URL::temporarySignedRoute(
+            'verify.email',
+            now()->addMinutes(10),
+            ['email' => $user->email, 'hash' => $hash]
+        );
+
+        session()->flash('success', 'Registeration successful.');
+
+        // Mail::to($email)->send(new RegisterMail($user, $email, $hash, $verificationUrl));
+        $this->reset();
+
+        $this->message = "Registeration Successful";
         
-        $this->redirectRoute('login', navigate:true);
+        // $this->redirectRoute('login', navigate:true);
     }
 
     public function render()
