@@ -1,9 +1,9 @@
 <?php
 
-use App\Livewire\Auth\LoginForm;
+use App\Livewire\LoginForm;
 use App\Livewire\RegisterForm;
+use App\Livewire\ForgotPasswordForm;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Auth\ForgotPasswordForm;
 
 Route::get('/', function () {
     return view('welcome');

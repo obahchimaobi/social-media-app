@@ -19,7 +19,7 @@
                 </div>
 
                 @error('name')
-                    <p class="text-xs text-red-600 mt-2" id="email-error">{{ $message }}</p>
+                    <p class="text-sm text-red-600 mt-2" id="email-error">{{ $message }}</p>
                 @enderror
 
             </div>
@@ -42,7 +42,7 @@
                 </div>
 
                 @error('email')
-                    <p class="text-xs text-red-600 mt-2" id="email-error">{{ $message }}</p>
+                    <p class="text-sm text-red-600 mt-2" id="email-error">{{ $message }}</p>
                 @enderror
 
             </div>
@@ -68,6 +68,24 @@
                 @enderror
             </div>
             <!-- End Form Group -->
+
+            <!-- Checkbox -->
+            <div class="flex items-center">
+                <div class="flex">
+                    <input id="remember-me" name="remember-me" type="checkbox"
+                        class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" wire:model='checkbox'>
+                </div>
+                <div class="ms-3">
+                    <label for="remember-me" class="text-sm dark:text-white">I accept the <a
+                            class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
+                            href="#">Terms and Conditions</a></label>
+                </div>
+            </div>
+
+            @error('checkbox')
+                <p class="text-sm text-red-600" id="password-error">{{ $message }}</p>
+            @enderror
+            <!-- End Checkbox -->
 
             <button type="submit"
                 class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Sign

@@ -1,5 +1,9 @@
 <div>
     {{-- Do your work, then step back. --}}
+    @section('title')
+        Register
+    @endsection
+    
     @section('content')
     <div class="flex justify-center items-center h-screen ">
         <div class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700 w-[400px] mx-auto">

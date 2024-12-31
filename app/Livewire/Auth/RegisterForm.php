@@ -21,13 +21,16 @@ class RegisterForm extends Component
             'name' => 'required|string',
             'email' => 'required|unique:users,email',
             'password' => 'required|min:8',
+            'checkbox' => 'accepted',
         ]);
 
         // dd($validatedData);
 
         User::create($validatedData);
 
-        $this->redirectRoute('register', navigate:true);
+        session()->flash('success', 'Registeration successfull.');
+        
+        $this->redirectRoute('login', navigate:true);
     }
 
     public function render()
