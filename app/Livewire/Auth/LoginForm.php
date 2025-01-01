@@ -30,10 +30,10 @@ class LoginForm extends Component
             return; // Stop execution here to prevent login
         }
 
-        // if (is_null($user->email_verified_at)) {
-        //     $this->reset();
-        //     $this->errorMessage = 'Your email is not verified';
-        // }
+        if (is_null($user->email_verified_at)) {
+            $this->reset();
+            $this->errorMessage = 'Your email is not verified';
+        }
 
         Auth::login($user);
 

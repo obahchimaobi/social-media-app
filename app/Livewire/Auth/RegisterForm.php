@@ -38,7 +38,7 @@ class RegisterForm extends Component
         $user->save();
 
         $email = $user->email;
-        $hash = $email;
+        $hash = sha1($email);
 
         $verificationUrl = URL::temporarySignedRoute(
             'verify.email',
@@ -46,12 +46,10 @@ class RegisterForm extends Component
             ['email' => $user->email, 'hash' => $hash]
         );
 
-        session()->flash('success', 'Registeration successful.');
-
         Mail::to($email)->send(new RegisterMail($user, $email, $hash, $verificationUrl));
         $this->reset();
 
-        $this->message = 'Registeration Successful';
+        $this->message = 'A confirmation email has been sent to '.$validatedData['email'].'. Click the verification link sent to your email to complete the verification process';
     }
 
     public function render()
