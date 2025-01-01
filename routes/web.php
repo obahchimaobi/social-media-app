@@ -1,14 +1,14 @@
 <?php
 
-use App\Models\User;
+use App\Livewire\ForgotPasswordForm;
 use App\Livewire\LoginForm;
 use App\Livewire\RegisterForm;
-use App\Livewire\ForgotPasswordForm;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth');
+})->middleware('auth')->name('home');
 
 Route::get('/login', LoginForm::class)->name('login');
 Route::get('/register', RegisterForm::class)->name('register');
@@ -17,7 +17,7 @@ Route::get('/forgot-password', ForgotPasswordForm::class)->name('forgot.password
 Route::get('/email/verify/{email}/{hash}', function ($email, $hash) {
     $user = User::where('email', $email)->firstOrFail();
 
-    if (!hash_equals(sha1($user->otp), $hash)) {
+    if (! hash_equals(sha1($user->otp), $hash)) {
         abort(403, 'Invalid verification link.');
     }
 

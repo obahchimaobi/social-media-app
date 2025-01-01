@@ -4,9 +4,9 @@ namespace App\Livewire\Auth;
 
 use App\Mail\RegisterMail;
 use App\Models\User;
-use Livewire\Component;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
+use Livewire\Component;
 
 class RegisterForm extends Component
 {
@@ -48,10 +48,10 @@ class RegisterForm extends Component
 
         session()->flash('success', 'Registeration successful.');
 
-        // Mail::to($email)->send(new RegisterMail($user, $email, $hash, $verificationUrl));
+        Mail::to($email)->send(new RegisterMail($user, $email, $hash, $verificationUrl));
         $this->reset();
 
-        $this->message = "Registeration Successful";
+        $this->message = 'Registeration Successful';
     }
 
     public function render()
