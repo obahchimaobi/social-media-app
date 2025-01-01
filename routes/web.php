@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\ForgotPasswordForm;
+use App\Livewire\Home\HomePage;
 use App\Livewire\LoginForm;
 use App\Livewire\RegisterForm;
 use App\Models\User;
@@ -9,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->middleware('auth')->name('home');
+
+Route::get('/dashboard', HomePage::class)->name('dashboard');
 
 Route::get('/login', LoginForm::class)->name('login');
 Route::get('/register', RegisterForm::class)->name('register');

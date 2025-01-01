@@ -1,6 +1,6 @@
 import './bootstrap';
 import 'preline';
-// import 'flowbite'
+import 'flowbite'
 
 document.addEventListener("livewire:navigating", () => {
     HSStaticMethods.autoInit();
