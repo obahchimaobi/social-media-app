@@ -8,8 +8,11 @@
 
     @livewireStyles
 </head>
-<body class="dark:bg-black bg-white/90 @if (Request::is('register', 'login')) bg-[url('/public/images/social.png')] bg-fixed @endif">
-    
+<body class="dark:bg-neutral-900 bg-white/90 @if (Request::is('register', 'login')) bg-[url('/public/images/social.png')] bg-fixed @endif">
+
+    @include('layouts._header')
+    @include('layouts._main')
+    @include('layouts._sidebar')
     @yield('content')
 
     @livewireScripts
