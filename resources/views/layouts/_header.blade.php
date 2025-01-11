@@ -1,6 +1,5 @@
 <!-- ========== HEADER ========== -->
-@if (!Request::is('login', 'register', 'forgot-password'))
-    <header
+<header
         class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-[48] w-full bg-white border-b text-sm py-2.5 lg:ps-[260px] dark:bg-neutral-800 dark:border-neutral-700">
         <nav class="px-4 sm:px-6 flex basis-full items-center w-full mx-auto">
             <div class="me-5 lg:me-0 lg:hidden">
@@ -165,5 +164,4 @@
             </div>
         </nav>
     </header>
-@endif
 <!-- ========== END HEADER ========== -->

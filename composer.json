@@ -13,6 +13,7 @@
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
+        "masmerise/livewire-toaster": "^2.6",
         "owenvoke/blade-fontawesome": "^2.8"
     },
     "require-dev": {

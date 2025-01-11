@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
+use Masmerise\Toaster\Toaster;
 
 class LoginForm extends Component
 {
@@ -25,8 +26,7 @@ class LoginForm extends Component
         $user = User::where('email', $validatedData['email'])->first();
 
         if (! $user || ! Hash::check($validatedData['password'], $user->password)) {
-            $this->reset();
-            $this->errorMessage = 'Incorrect email or password';
+            Toaster::error('Incorrect email or password');
             return; // Stop execution here to prevent login
         }
 
@@ -42,6 +42,6 @@ class LoginForm extends Component
 
     public function render()
     {
-        return view('livewire.auth.login-form')->extends('layouts.app');
+        return view('livewire.auth.login-form');
     }
 }

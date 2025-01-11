@@ -8,6 +8,6 @@ class LoginForm extends Component
 {
     public function render()
     {
-        return view('livewire.login-form')->extends('layouts.app');
+        return view('livewire.login-form');
     }
 }
