@@ -5,6 +5,7 @@ namespace App\Livewire\Auth;
 use App\Mail\RegisterMail;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 use Livewire\Component;
 
@@ -47,9 +48,10 @@ class RegisterForm extends Component
         );
 
         Mail::to($email)->send(new RegisterMail($user, $email, $hash, $verificationUrl));
+        
         $this->reset();
 
-        $this->message = 'A confirmation email has been sent to '.$validatedData['email'].'. Click the verification link sent to your email to complete the verification process';
+        return Redirect::route('login')->success('A confirmation email has been sent to '.$validatedData['email'].'. Click the verification link sent to your email to complete the verification process');
     }
 
     public function render()

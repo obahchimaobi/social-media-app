@@ -31,8 +31,8 @@ class LoginForm extends Component
         }
 
         if (is_null($user->email_verified_at)) {
-            $this->reset();
-            $this->errorMessage = 'Your email is not verified';
+            Toaster::error('Your email is not verified');
+            return;
         }
 
         Auth::login($user);
